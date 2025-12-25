@@ -1,0 +1,655 @@
+:root {
+  --bg: #050507;
+  --card: #101216;
+  --red: #ff1f3d;
+  --text: #ffffff;
+  --muted: #9aa0aa;
+  --radius: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: color 0.25s ease,
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: radial-gradient(circle at top, #0d0f14, #050507 60%);
+  color: var(--text);
+}
+
+/* NAVBAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(5,5,7,0.85);
+  backdrop-filter: blur(10px);
+}
+
+.nav-inner {
+  max-width: 1300px;
+  margin: auto;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 38px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.logo span {
+  color: var(--red);
+}
+
+.nav-links a {
+  margin-left: 25px;
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.join-btn {
+  background: var(--red);
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: white !important;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 120px 20px;
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero h1 span {
+  color: var(--muted);
+}
+
+.hero p {
+  margin: 25px 0;
+  max-width: 520px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--red);
+  color: white;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255,31,61,0.35);
+}
+
+.btn.outline {
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+}
+
+.btn.outline:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--red);
+}
+
+/* TITLES */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 42px;
+}
+
+.section-title span {
+  color: var(--red);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* CARDS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: linear-gradient(180deg, #111319, #0a0b0f);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.75);
+}
+
+.badge {
+  background: rgba(255,31,61,0.15);
+  color: var(--red);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.meta {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ===============================
+   REGISTER NOW BUTTON – UPGRADE
+   =============================== */
+
+.card button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #ff1f3d,
+    #b8122a
+  );
+  color: #fff;
+
+  border: none;
+
+  box-shadow:
+    0 10px 30px rgba(255, 31, 61, 0.35),
+    inset 0 0 0 rgba(255,255,255,0);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.card button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 16px 45px rgba(255, 31, 61, 0.45);
+}
+
+.card button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 20px rgba(255, 31, 61, 0.35);
+}
+
+@media (hover: hover) {
+  .card button:hover {
+    animation: ctaPulse 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(255, 31, 61, 0.35);
+  }
+  50% {
+    box-shadow: 0 14px 40px rgba(255, 31, 61, 0.55);
+  }
+}
+
+/* ===============================
+   MATCH INFO STYLING
+   =============================== */
+
+.match-info {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.info-row.prize {
+  background: linear-gradient(
+    135deg,
+    rgba(255,31,61,0.18),
+    rgba(255,31,61,0.05)
+  );
+  border: 1px solid rgba(255,31,61,0.35);
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.value strong {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.value.fee {
+  color: #25d366;
+  font-weight: 800;
+}
+
+.divider {
+  margin: 0 8px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ===============================
+   CLASSIC PRIZE MEDALS
+   =============================== */
+
+.prize-values {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.prize {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.prize .medal {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Individual prize emphasis */
+
+.prize.first {
+  color: #ffd700; /* gold */
+}
+
+.prize.second {
+  color: #a1a8b3; /* silver */
+}
+
+.prize.third {
+  color: #cd7f32; /* bronze */
+}
+
+.prize strong {
+  font-weight: 800;
+}
+
+/* ===============================
+   TDM PRIZE STYLE
+   =============================== */
+
+.tdm-prize {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 211, 102, 0.18),
+    rgba(37, 211, 102, 0.06)
+  );
+  border: 1px solid rgba(37, 211, 102, 0.45);
+}
+
+.tdm-prize .value strong {
+  color: #25d366;
+  font-size: 16px;
+}
+
+/* ===============================
+   WINNER TAKES ALL TAG
+   =============================== */
+
+.winner-tag {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.tdm-prize .winner-tag {
+  background: rgba(37, 211, 102, 0.25);
+  color: #25d366;
+}
+
+/* GALLERY */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.gallery-item {
+  position: relative;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.75));
+  opacity: 0;
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  padding: 8px 18px;
+  background: rgba(255,31,61,0.9);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item:hover::after,
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* CONTACT */
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.contact-card {
+  background: linear-gradient(180deg, #111319, #0a0b0f);
+  border-radius: 18px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255,31,61,0.4);
+}
+
+.contact-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
+  background: rgba(255,255,255,0.08);
+}
+
+/* FOOTER */
+
+footer {
+  padding: 40px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+  }
+}
+
+/* ===============================
+   CONFIRMATION MODAL
+   =============================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: linear-gradient(180deg, #111319, #0a0b0f);
+  border-radius: 20px;
+  padding: 36px 30px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.08);
+  animation: popIn 0.25s ease;
+}
+
+.modal-box h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.modal-box p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* FIX CANCEL BUTTON IN MODAL */
+
+#cancelBtn {
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+#cancelBtn:hover {
+  background: #111;
+  border-color: var(--red);
+  transform: translateY(-1px);
+}
+
+.whatsapp-note {
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.whatsapp-note a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #25d366;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.whatsapp-note a:hover {
+  text-decoration: underline;
+}
+
+.whatsapp-note a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   MOBILE NAV FIX
+   =============================== */
+
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .join-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .join-btn {
+    width: 100%;
+    padding: 8px 18px;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+#confirmBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
